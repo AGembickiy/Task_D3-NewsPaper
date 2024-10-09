@@ -1,0 +1,14 @@
+{% extends 'layout/default.html' %}
+{% load custom_filters %}
+{% block content %}
+<h2>{{title|censor}}</h2>
+<ul>
+    {% for p in posts %}
+    <li>
+        <h2>{{p.heading|censor}}</h2>
+        <p>{{p.date_time_creation}}</p>
+        <p>{{p.text_post|truncatewords_html:50|censor}}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
